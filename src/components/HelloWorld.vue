@@ -9,12 +9,14 @@ const date = ref<Date[]>([new Date(), new Date()]);
 
 const hasUpdated = ref(false);
 
+const start = ref(date.value[0])
+const end = ref(date.value[1])
+
 const handleDate = () => {
   hasUpdated.value = true
+  start.value =  date.value[0]
+  end.value = date.value[1]
 }
-
-const start = date.value[0]
-const end = date.value[1]
 
 const epochTime = (time: Date) => {
   return Math.floor(time.getTime()/1000.0)
@@ -39,10 +41,10 @@ const dayMonth = (time:Date) => {
 
 const generate = async () => {
   const data = `"idps_bcp": {
-	"start_time": `+epochTime(start)+`,
-	"end_time": `+epochTime(end)+`,
+	"start_time": `+epochTime(start.value)+`,
+	"end_time": `+epochTime(end.value)+`,
 	"title": "NDID ปิดทำการชั่วคราว",
-	"description": "NDID ปิดปรับปรุงระบบใน`+weekDay(start)+`ที่ `+dayMonth(start)+` เวลา `+timeShort(start)+` น. - `+weekDay(end)+`ที่ `+dayMonth(start)+` เวลา `+timeShort(end)+` น. ขออภัยในความไม่สะดวก"
+	"description": "NDID ปิดปรับปรุงระบบใน`+weekDay(start.value)+`ที่ `+dayMonth(start.value)+` เวลา `+timeShort(start.value)+` น. - `+weekDay(end.value)+`ที่ `+dayMonth(start.value)+` เวลา `+timeShort(end.value)+` น. ขออภัยในความไม่สะดวก"
 }`
   await navigator.clipboard.writeText(data);
   alert('Copied JSON to clipboard, use ctrl v to paste anywhere.');
