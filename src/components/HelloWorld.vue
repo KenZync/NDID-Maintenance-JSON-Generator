@@ -74,7 +74,7 @@ const generate = async () => {
         end_time : {{epochTime(end)}}
       </div>
       <div>title : NDID ปิดทำการชั่วคราว</div>
-      <div>description : NDID ปิดปรับปรุงระบบใน{{weekDay(start)}}ที่ {{dayMonth(start)}} เวลา {{timeShort(start)}} น. - {{weekDay(start)}} เวลา {{timeShort(start)}} น. ขออภัยในความไม่สะดวก</div>
+      <div>description : NDID ปิดปรับปรุงระบบใน{{weekDay(start)}}ที่ {{dayMonth(start)}} เวลา {{timeShort(start)}} น. - {{weekDay(start)}}ที่ {{dayMonth(start)}} เวลา {{timeShort(start)}} น. ขออภัยในความไม่สะดวก</div>
       <pre></pre>
       <button type="button" @click="generate">Copy JSON to clipboard</button>
     </div>
