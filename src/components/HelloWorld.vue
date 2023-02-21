@@ -44,7 +44,7 @@ const generate = async () => {
 	"start_time": `+epochTime(start.value)+`,
 	"end_time": `+epochTime(end.value)+`,
 	"title": "NDID ปิดทำการชั่วคราว",
-	"description": "NDID ปิดปรับปรุงระบบใน`+weekDay(start.value)+`ที่ `+dayMonth(start.value)+` เวลา `+timeShort(start.value)+` น. - `+weekDay(end.value)+`ที่ `+dayMonth(start.value)+` เวลา `+timeShort(end.value)+` น. ขออภัยในความไม่สะดวก"
+	"description": "NDID ปิดปรับปรุงระบบใน`+weekDay(start.value)+`ที่ `+dayMonth(start.value)+` เวลา `+timeShort(start.value)+` น. - `+weekDay(end.value)+`ที่ `+dayMonth(end.value)+` เวลา `+timeShort(end.value)+` น. ขออภัยในความไม่สะดวก"
 }`
   await navigator.clipboard.writeText(data);
   alert('Copied JSON to clipboard, use ctrl v to paste anywhere.');
@@ -74,7 +74,7 @@ const generate = async () => {
         end_time : {{epochTime(end)}}
       </div>
       <div>title : NDID ปิดทำการชั่วคราว</div>
-      <div>description : NDID ปิดปรับปรุงระบบใน{{weekDay(start)}}ที่ {{dayMonth(start)}} เวลา {{timeShort(start)}} น. - {{weekDay(start)}}ที่ {{dayMonth(start)}} เวลา {{timeShort(start)}} น. ขออภัยในความไม่สะดวก</div>
+      <div>description : NDID ปิดปรับปรุงระบบใน{{weekDay(start)}}ที่ {{dayMonth(start)}} เวลา {{timeShort(start)}} น. - {{weekDay(end)}}ที่ {{dayMonth(end)}} เวลา {{timeShort(end)}} น. ขออภัยในความไม่สะดวก</div>
       <pre></pre>
       <button type="button" @click="generate">Copy JSON to clipboard</button>
     </div>
