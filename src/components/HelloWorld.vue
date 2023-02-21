@@ -16,6 +16,9 @@ const handleDate = () => {
   hasUpdated.value = true
   start.value =  date.value[0]
   end.value = date.value[1]
+  if(end.value == null){
+    end.value = date.value[0]
+  }
 }
 
 const epochTime = (time: Date) => {
